@@ -1,0 +1,153 @@
+%!TEX root=seke.tex
+% mainfile: seke.tex
+
+\documentclass[10pt,twocolumn]{article}
+
+\usepackage{moreverb}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc} 
+\usepackage{multirow}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{pifont} 
+\usepackage{import}
+\usepackage{amsmath}
+\usepackage[table]{xcolor}% http://ctan.org/pkg/xcolor
+\usepackage{latex8}
+\usepackage{times}
+\usepackage{inconsolata}
+\usepackage{pifont}
+\usepackage{placeins}
+\usepackage{adjustbox}
+\usepackage{lipsum}
+\usepackage{textcomp}
+\usepackage{listings}
+\usepackage{caption}
+\usepackage{amsmath}
+\usepackage{calc} 
+\usepackage{array,url,kantlipsum}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{lscape}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{txfonts}
+
+\usepackage{graphicx}
+\usepackage{algorithm}
+%\usepackage{algorithmic}
+
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,shadows}
+\usepackage{amsmath,bm,times}
+\usepackage{verbatim}
+
+\usepackage{subcaption}
+\usepackage{bibspacing}
+\usepackage{fancyhdr}
+
+\renewcommand*\thelstnumber{\arabic{lstnumber}:}
+
+\DeclareCaptionFormat{mylst}{\hrule#1#2#3}
+\captionsetup[lstlisting]{format=mylst,labelfont=bf,singlelinecheck=off,labelsep=space,font={normalsize,tt}}
+
+\usepackage[dvips,colorlinks,bookmarksopen,bookmarksnumbered,citecolor=red,urlcolor=red]{hyperref}
+
+
+\renewcommand{\headrulewidth}{0pt}
+\fancypagestyle{doi}{\lfoot{DOI reference number: 10.18293/SEKE2015-205}}
+
+\usepackage[small,compact]{titlesec}
+% \usepackage{titlesec}
+
+\pagenumbering{gobble}
+
+\newcommand{\goallegheny}{$^{\mbox{\footnotesize \ding{72}}}$}
+\newcommand{\gosheffield}{$^{\mbox{\footnotesize \ding{73}}}$}
+\newcommand{\gospace}{$\;$}
+
+
+
+% \makeatletter
+% \renewenvironment{thebibliography}[1]{%
+%   \vspace*{-.1in}
+%   \@xp\section\@xp*\@xp{\refname}%
+%   % \normalfont\footnotesize\labelsep .5em\relax
+%   \renewcommand\theenumiv{\arabic{enumiv}}\let\p@enumiv\@empty
+%   \vspace*{-.1in}% NEW
+%   \list{\@biblabel{\theenumiv}}{\settowidth\labelwidth{\@biblabel{#1}}%
+%     \leftmargin\labelwidth \advance\leftmargin\labelsep
+%     \usecounter{enumiv}}%
+%   % \sloppy \clubpenalty\@M \widowpenalty\clubpenalty
+%   % \sfcode`\.=\@m
+% }{%
+%   \def\@noitemerr{\@latex@warning{Empty `thebibliography' environment}}%
+%   \endlist
+% }
+% \makeatother
+
+\begin{document}
+
+% \title{Empirically Evaluating the Efficiency of Search-based \\ Test Data
+% Generation for Relational Database Schemas\vspace*{-.1in}}
+
+\title{\vspace*{-.6in}Implementing a testbed tool for \\ load, performance and stress search based tests\vspace*{-.1in}}
+
+\author{Nauber Gois, Pedro Porfírio, André Coelho
+      }
+
+\affiliation{Universidade de Fortaleza, UNIFOR, Av. Washington Soares, 1321 , Fortaleza - CE,  Brazil
+}
+
+\email{naubergois@gmail.com}
+
+\maketitle
+
+\thispagestyle{doi}
+
+\begin{abstract}
+
+% When evaluating an algorithm, it is often useful to speak of it's efficiency in terms of it's worst-case complexity.
+% This is the case for search-based test data generation tools.
+% on the search-based data generation tool \textit{SchemaAnalyst}.
+
+% This paper introduces a framework for conducting automated empirical studies of algorithms by doubling
+% the size of the input and observing the change in runtime.
+
+% After describing a way to systematically doubling the size of structured data, we report on a study demonstrating the
+% presented method's effectiveness.
+
+Metaheuristic search techniques have been extensively used to provide solutions for a more cost-effective testing process. The use of metaheuristic search techniques for the automatic generation
+of test  has been a burgeoning interest for many researchers in recent years. Search Based Software Testing refers to the use of meta-heuristics for the optimization of a task in the context of
+software testing. Experimentation is important to realistically and accurately
+test and evaluate search based tests. Experiments involving stress search based tests are inherently complex and typically time-consuming to set up and
+execute. Such experiments are also extremely difficult to
+repeat, People who might want to duplicate published results, for example, must devote substantial resources to setting up and the environmental conditions are likely to be substantially different. A Testbed makes possible follow a formalized it's a methodology to reproduce tests for further analysis and comparison. Since a real testbed is often extremely costly, an open source testbed simulator can represent a valid alternative to real device development and testbed deployment for academic and industrial research goals. In this paper, we propose a testbed tool named IAdapter TestBed to evaluate various diversity combining metaheuristics in search-based software testing. Two experiments were conducted to validate the proposed tool. In the first experiment the metaheuristics converged to scenarios with no antipatterns. In the second experiment,  the metaheuristics excluding the scenarios with Unbalanced Processing antipattern.
+
+\end{abstract}
+
+\input{writing/intro}
+\input{writing/background}
+\input{writing/technique}
+% begin experiment section
+%\input{writing/experimentdesign}
+%\input{writing/results_bigOh}
+%\input{writing/results_trees}
+%\input{writing/results_bwplots}
+%\input{writing/results_tables}
+%\input{writing/threats}
+%\input{writing/conclusion}
+
+% GMK NOTE: I removed this and moved it into the background section
+% \input{writing/relatedworks}
+
+% \titleformat{\chapter}{\huge\bf}{}{10pt}{\arabic{chapter} \ }[\titlerule]
+\setlength{\bibitemsep}{.075in}
+{\footnotesize
+  \bibliographystyle{IEEEtran}
+% \vspace*{-.05in}
+\bibliography{bibtex/seke}}
+
+\end{document}

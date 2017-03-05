@@ -1,0 +1,27 @@
+% vim: ft=tex
+%!TEX root=seke.tex
+% mainfile: ../seke.tex
+
+To gain a more nuanced understanding of the results, our tool constructed a conditional inference tree model using the
+\textit{ctree} package in the R language. These trees use the values of predictor variables (e.g., the adequacy
+criterion) to model the value of a response variable (e.g., {\em SchemaAnalyst}'s runtime);~\textit{ctree} accomplishes this
+by repeatedly splitting the data according to what predictor variable has the most influence on the response variable.
+Each tree node represents a choice of predictor variable, and the level of the node indicates its importance to
+the prediction, with higher nodes being more important to predicting generation time.
+
+% \textit{ctree} produced the tree shown as Figure~\ref{fig:atree} to predict the runtime of \textit{SchemaAnalyst} with
+% the predictor variables: tables, columns, {\tt UNIQUE}s, {\tt NOT NULL}s, {\tt CHECK}s, chosen criterion, and the data
+% generator.  The regression tree confirms that the number of tables has the greatest impact on runtime, and also reveals
+% that when the number of tables in the schema is small, the choice of coverage criterion is most significant.
+
+% \textit{ctree} produced the tree shown as Figure~\ref{fig:atree} to predict the runtime of \textit{SchemaAnalyst} with
+
+Using predictor variables for the number of tables, columns, {\tt UNIQUE}s, {\tt NOT NULL}s, and {\tt CHECK}s; and the
+chosen criterion and data generator, \textit{ctree} produced the tree model in Figure~\ref{fig:atree}.  In addition to
+confirming that the number of tables has the greatest impact on runtime, the tree also reveals that, when the number of
+tables in the schema is small, the choice of coverage criterion is most
+significant.  While the number of tables had a large impact when over $197,000$, in practice schemas are unlikely to be this large. Another invocation of
+\textit{ctree}, excluding tables from the list of predictors, provided insight into the behavior of
+\textit{SchemaAnalyst} for more practical table sizes. In this tree, not shown due to space constraints, the coverage
+criterion emerged as the most important predictor for runtime, followed by the choice of data generator, and then the
+number of columns.

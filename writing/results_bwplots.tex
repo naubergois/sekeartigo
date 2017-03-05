@@ -1,0 +1,56 @@
+% vim: ft=tex
+%!TEX root=seke.tex
+% mainfile: ../seke.tex
+
+While the trees provide insight into the relative impact of each predictor, the box and whisker plots shown in the
+leaves of the trees do not furnish a detailed view of the choices within each predictor.  To gain a finer-grained
+understanding, we created box and whisker plots of our own:  Figure~\ref{fig:crites} shows the influence of coverage
+criterion on runtime, while Figure~\ref{fig:datas} shows the effect of data generator on runtime.
+Figure~\ref{fig:crites} shows that the strongest coverage criteria in the subsumption hierarchy (i.e., AUCC, ClauseAICC,
+and CondAICC) cause runtime to increase the most, followed by ANCC and AICC, and then the remaining criteria (i.e., APC
+through UCC).  We anticipate that the stronger criteria always lead to higher time overheads because they force {\em
+SchemaAnalyst} to generate more tests.  Also, criteria at the same level in the hierarchy engender similar runtimes.
+
+Figure~\ref{fig:datas} reveals that, by a substantial margin, the Random and Random Defaults generators took the most
+time to generate data. This counterintuitive result suggests that less effective data generators actually take longer to
+create data than those that are known to be more effective~\cite{kapfhammer2013}.  A less pronounced difference between
+the remaining generators can be observed, with the use of default values consistently being faster than the use of
+random values at restart.
+
+\begin{table*}[th]
+\vspace*{-.2in}
+  \centering
+  \small
+\begin{tabular}{llllllllll}
+           & APC      & ANCC     & CondAICC & NCC      & AUCC     & AICC     & ClauseAICC & ICC      & UCC   \\
+APC        & NA       & \cellcolor{gray!25}0.425    &
+\cellcolor{gray!45}0.337    & 0.484    &\cellcolor{gray!45} 0.334    &
+\cellcolor{gray!25}0.413    &\cellcolor{gray!45} 0.329      & 0.481    & 0.449 \\
+ANCC       & 2.20E-16 & NA       &\cellcolor{gray!25} 0.407
+&\cellcolor{gray!25} 0.561    &\cellcolor{gray!25} 0.405    & 0.484
+&\cellcolor{gray!25} 0.399      & 0.554    & 0.526 \\
+CondAICC   & 2.20E-16 & 2.20E-16 & NA       &\cellcolor{gray!45} 0.671
+& 0.503    &\cellcolor{gray!25} 0.581    & 0.492
+&\cellcolor{gray!45} 0.656    &\cellcolor{gray!25} 0.634 \\
+NCC        & 1.20E-02 & 2.20E-16 & 2.20E-16 & NA
+&\cellcolor{gray!45} 0.335    &\cellcolor{gray!25} 0.417
+&\cellcolor{gray!45} 0.322      & 0.491    & 0.461 \\
+AUCC       & 2.20E-16 & 2.20E-16 & \fbox{6.92E-01} & 2.20E-16 & NA       &
+\cellcolor{gray!25}0.577    & 0.490      &\cellcolor{gray!45} 0.651
+&\cellcolor{gray!25} 0.628 \\
+AICC       & 2.20E-16 & 1.70E-02 & 2.20E-16 & 2.20E-16 & 2.20E-16 & NA
+&\cellcolor{gray!25} 0.412      &\cellcolor{gray!25} 0.571    & 0.547 \\
+ClauseAICC & 2.20E-16 & 2.20E-16 & \fbox{2.72E-01} & 2.20E-16 & 1.40E-01 &
+2.20E-16 & NA         & \cellcolor{gray!45}0.662    &\cellcolor{gray!45} 0.641 \\
+ICC        & 4.00E-03 & 2.20E-16 & 2.20E-16 &\fbox{1.83E-01} & 2.20E-16 & 2.20E-16 & 2.20E-16   & NA       & 0.472 \\
+UCC        & 9.30E-16 & 3.83E-05 & 2.20E-16 & 7.36E-10 & 2.20E-16 &
+5.73E-13 & 2.20E-16   & 9.29E-06 & NA    \\ \hline
+& Rank-Sum: & significant & \fbox{insignificant} & &
+$\hat{A}_{12}$: & none & \cellcolor{gray!25} small &
+\cellcolor{gray!45} medium & \cellcolor{gray!65} large
+\end{tabular}
+
+\caption{For each pair of coverage criteria, lower left shows Wilcoxon Rank-Sum Test, upper right shows $\hat{A}_{12}$.}
+\label{tab:crites}
+\vspace*{-.2in}
+\end{table*}
