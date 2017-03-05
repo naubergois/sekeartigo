@@ -15,7 +15,9 @@ automate the generation of test inputs. Metaheuristics are strategies that guide
 
 A common goal of load, performance or stress search-based testing is to find workloads that produce execution times that exceed the timing constraints specified. If a temporal error is found, the test was successful \cite{Sullivan}. The application of evolutionary algorithms to  stress tests involves finding the best- and worst-case execution times (B/WCET) to determine whether timing constraints are fulfilled \cite{Afzal2009a}. 
 
-IAdapter is a JMeter plugin designed to perform search-based stress tests. The plugin uses genetic algorithms, tabu search and simulated annealing in a collaborative mode (hybrid metaheuristic) \cite{Gois2016}. JMeter is a desktop application designed to test and measure the performance and functional behavior of applications.  The JMeter tool can test a class in isolation using Mock objects
+IAdapter is a JMeter plugin designed to perform search-based stress tests. The plugin uses genetic algorithms, tabu search and simulated annealing in a collaborative mode (hybrid metaheuristic) \cite{Gois2016}. JMeter is a desktop application designed to test and measure the performance and functional behavior of applications.  
+
+Many times, a unit test should test a class in isolation. The JMeter tool can test a class in isolation using Mock objects. A mock object is a dummy implementation for an interface or a class. A Mock Object is a substitute implementation to emulate other domain code. Basic mock object allows testing a unit faking the communication with collaborating objects. It should be simpler than the real code, not duplicate its implementation \cite{Mackinnon2001} \cite{Brown2003}. 
 
 
 % \vspace*{-.05in}

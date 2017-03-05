@@ -6,18 +6,7 @@
 \vspace*{-.075in}
 
 
-In this section, We devise a new testbed that has the ability to reproduce different types of web workloads.  The proposed solution extends a tool named IAdapter to create a testbed tool to validade load, performance and stress search based tests approaches \cite{Gois2016}. The IAdapter is a JMeter plugin designed to perform search-based stress tests. Fig. \ref{fig:iadapterlifecycle} presents the IAdapter Life Cycle. The main difference between IAdapter and JMeter tool is that the IAdapter provide an automated test execution where the new test scenarios are choosen by the test tool.  In a test with JMeter, the tests scenarios are usually chosen by a test designer.
-
-This new testbed must accomplish three main goals. First, it must reproduce a workload by using an antipattern implementation. Second, it must be able to provide client and server metrics with the aim of being used for web performance evaluation studies. Finally, it is should be extensible, allowing create new test scenarios.
-
-
-\begin{figure}[h]
-\centering
-\includegraphics[width=0.5\textwidth]{./images/lifecycle2.png}
-\caption{IAdapter life cycle}
-\label{fig:iadapterlifecycle}
-\end{figure}
-
+In this section, We devise a new testbed that has the ability to reproduce different types of web workloads.  The proposed solution extends a tool named IAdapter to create a testbed tool to validade load, performance and stress search based tests approaches \cite{Gois2016}. This new testbed must accomplish three main goals. First, it must reproduce a workload by using an antipattern implementation. Second, it must be able to provide client and server metrics with the aim of being used for web performance evaluation studies. Finally, it is should be extensible, allowing create new test scenarios.
 
 The testbed tool proposed consists of four main elements.  Figure \ref{fig:testbedarch} presents the main architecture of the Testbed solution proposed. The emulator module provides workloads to the Test module.The Test module uses a class loader to find all classes that extends AbstractAlgorithm in the classpath and run all tests for each metaheuristic found. The Test Scenario library provides the scenario representation used by the metaheuristics and persist the testbed results data in a database. Neighborhood provider service is responsible to search neighbors of some individual provided as parameter to the service.
 
@@ -97,12 +86,25 @@ Fig. \ref{fig:neighbourtaby} shows the strategy used by the proposed solution to
 \end{figure}
 
 
-\FloatBarrier
+
 \section{Experiments}
 
 In this section, We present the results of experiments which we carried out to verify the antipatterns  implementation and the metaheuristics used by the testbed tool. We conducted two experiments in order to verify the effectiveness of the testbed tool.
 
-The experiments ran for 17 generations. The experiments used an initial population of 4 individuals by metaheuristic. The genetic algorithm used the top 10 individuals from each generation in the crossover operation. The Tabu list was configured with the size of 10 individuals and expired every 2 generations.  The mutation operation was applied to 10\% of the population on each generation. The experiments uses tabu search, genetic algorithms and the hybrid metaheuristic approach proposed by Gois et al. \cite{Gois2016}. The objective function applied is intended to maximize the number of users and minimize the response time of the scenarios being tested.  In this experiments, better fitness values meaning to find scenarios with more users and a low values of response time. A penalty is applied when the response time is greater than the  maximum response time expected. 
+The scope of the experiments is analyze the use of the IAdapter testbed  for the purpose of evaluation with respect to effectiveness and efficienct from the point of view of the tester in the context of  stress test  practices.  The experiments ran for 17 generations. The experiments used an initial population of 4 individuals by metaheuristic. The genetic algorithm used the top 10 individuals from each generation in the crossover operation. The Tabu list was configured with the size of 10 individuals and expired every 2 generations.  The mutation operation was applied to 10\% of the population on each generation. The experiments uses tabu search, genetic algorithms and the hybrid metaheuristic approach proposed by Gois et al. \cite{Gois2016}. The objective function applied is intended to maximize the number of users and minimize the response time of the scenarios being tested.  In this experiments, better fitness values meaning to find scenarios with more users and a low values of response time. A penalty is applied when the response time is greater than the  maximum response time expected. 
+
+\subsection{Research Questions}
+
+The following research question is addressed:
+\begin{itemize}
+\item Does the IAdapter testbed reproduce a workload by using an antipattern implementation?
+\item Does the IAdapter testbed be able to provide client and server metrics with the aim of being used for web performance evaluation studies?
+\item The IAdapter testbed should be extensible, allowing create new test scenarios?
+\end{itemize}
+
+\subsection{Variables}
+
+The independent variables are the test scenarios (antipatterns and happy scenarios). The dependent variable are the maximal number of users supported by the application.
 
 \subsection{The Ramp and Circuitous Treasure Hunt experiment}
 
