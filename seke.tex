@@ -34,6 +34,7 @@
 \usepackage{longtable}
 \usepackage{booktabs}
 \usepackage{txfonts}
+\usepackage[inline]{enumitem}
 
 \usepackage{graphicx}
 \usepackage{algorithm}
@@ -57,7 +58,7 @@
 
 
 \renewcommand{\headrulewidth}{0pt}
-\fancypagestyle{doi}{\lfoot{DOI reference number: 10.18293/SEKE2015-205}}
+\fancypagestyle{doi}{\lfoot{DOI reference number:}}
 
 \usepackage[small,compact]{titlesec}
 % \usepackage{titlesec}
@@ -87,13 +88,14 @@
 %   \endlist
 % }
 % \makeatother
+\providecommand{\keywords}[1]{\textbf{\textit{Keywords---}} #1}
 
 \begin{document}
 
 % \title{Empirically Evaluating the Efficiency of Search-based \\ Test Data
 % Generation for Relational Database Schemas\vspace*{-.1in}}
 
-\title{\vspace*{-.6in}Implementing a testbed tool for \\ load, performance and stress search based tests\vspace*{-.1in}}
+\title{\vspace*{-.6in}Implementing a testbed tool for \\  search-based stress tests\vspace*{-.1in}}
 
 \author{Nauber Gois, Pedro Porfírio, André Coelho
       }
@@ -101,7 +103,7 @@
 \affiliation{Universidade de Fortaleza, UNIFOR, Av. Washington Soares, 1321 , Fortaleza - CE,  Brazil
 }
 
-\email{naubergois@gmail.com}
+\email{naubergois@gmail.com, porfirio@unifor.br,  acoelho@unifor.br}
 
 \maketitle
 
@@ -120,13 +122,14 @@
 % presented method's effectiveness.
 
 Metaheuristic search techniques have been extensively used to provide solutions for a more cost-effective testing process. The use of metaheuristic search techniques for the automatic generation
-of test  has been a burgeoning interest for many researchers in recent years. Search Based Software Testing refers to the use of meta-heuristics for the optimization of a task in the context of
+of test  has been a burgeoning interest for many researchers in recent years. Search Based Software Testing refers to the use of metaheuristics for the optimization of a task in the context of
 software testing. Experimentation is important to realistically and accurately
 test and evaluate search based tests. Experiments involving stress search based tests are inherently complex and typically time-consuming to set up and
 execute. Such experiments are also extremely difficult to
-repeat, People who might want to duplicate published results, for example, must devote substantial resources to setting up and the environmental conditions are likely to be substantially different. A Testbed makes possible follow a formalized it's a methodology to reproduce tests for further analysis and comparison. Since a real testbed is often extremely costly, an open source testbed simulator can represent a valid alternative to real device development and testbed deployment for academic and industrial research goals. In this paper, we propose a testbed tool named IAdapter TestBed to evaluate various diversity combining metaheuristics in search-based software testing. Two experiments were conducted to validate the proposed tool. In the first experiment the metaheuristics converged to scenarios with no antipatterns. In the second experiment,  the metaheuristics excluding the scenarios with Unbalanced Processing antipattern.
+repeat.  In this paper, We propose a testbed tool named IAdapter TestBed to evaluate metaheuristic research approaches in search-based software testing. Two experiments were conducted to validate the proposed tool. In the first experiment the metaheuristics converged to scenarios with no antipatterns. In the second experiment,  the metaheuristics exclude the scenarios with Unbalanced Processing antipattern.
 
 \end{abstract}
+\keywords{Testbed, Search-based stress test, Hybrid metaheuristics}
 
 \input{writing/intro}
 \input{writing/background}
